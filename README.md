@@ -7,4 +7,5 @@ FreeBSD & IPFW
 20190130
 
 Crontab: 
-28 2,14 * * * /root/firewall/abuseipdb.pl
+
+> 28 2,14 * * * /root/firewall/abuseipdb.pl

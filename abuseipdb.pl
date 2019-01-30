@@ -43,6 +43,10 @@ close $fh;
 open($fh, '<', "/root/firewall/firewall-blacklist-$today.txt");
 while (my $ip = <$fh>) {
 	chomp $ip;
-	`ipfw table 2 add $ip`;
+	if ($ip =~ /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2})/) {
+		`ipfw table 2 add $ip`;
+	} else {
+		print "Some weird stuff in the firewall list $today: $ip\n";
+	}
 }
 close $fh;
